@@ -1,8 +1,7 @@
 name: Auto Update Sports Playlist
 
 on:
-  schedule:
-    - cron: '*/15 * * * *' # প্রতি ১৫ মিনিট পর পর চলবে
+  → Runs every 15 minutes # প্রতি ১৫ মিনিট পর পর চলবে
   workflow_dispatch: # ম্যানুয়ালি রান করার অপশন
 
 jobs:

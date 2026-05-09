@@ -1,9 +1,6 @@
 #EXTM3U
 # Developed by Hady & join tg channel t.me/livesportsplay
 
-#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/05/04/EFL_CHAMP_THMB_26_Middlesbrough_Main_Southampton_Alt_bslx6.jpg" group-title="Paramount Live", Middlesbrough vs. Southampton
-https://srhady-sports-transcoder.hf.space/play.m3u8?id=sQKVmga5RRC2p3uLUEflAw
-
 #EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/04/23/SERIE_THMB_26_Cagliari_Main_Udinese_Main_nrjy8.jpg" group-title="Paramount Live", Cagliari vs. Udinese
 https://srhady-sports-transcoder.hf.space/play.m3u8?id=bQ15TU94SZm1pta6800Kcw
 

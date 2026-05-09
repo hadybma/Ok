@@ -2,8 +2,8 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 
 async function generatePlaylist() {
+    // ব্রান্ডিং রিমুভ করা হয়েছে, এখন একদম ক্লিন লিংক!
     const HF_BASE_URL = "https://srhady-sports-transcoder.hf.space/play.m3u8?id=";
-    const BRAND_SUFFIX = "_Developed_by_Hady_join_tg_livesportsplay";
 
     console.log("🚀 Paramount+ Auto Playlist Generator শুরু হচ্ছে...");
 
@@ -17,7 +17,7 @@ async function generatePlaylist() {
         const n = wasmModule.instance.exports;
         console.log("[+] Local Wasm engine রেডি!");
 
-        // ২. ডাইরেক্ট টার্মিনাল কমান্ড সিমুলেট করার জন্য Bash স্ক্রিপ্ট তৈরি (তোমার অরিজিনাল ট্রিক!)
+        // ২. ডাইরেক্ট টার্মিনাল কমান্ড সিমুলেট করার জন্য Bash স্ক্রিপ্ট তৈরি
         console.log("[*] Step 2: Fetching data (Terminal Simulation Mode)...");
         const bashScript = `#!/bin/bash
 curl -s 'https://data.miopks.workers.dev/?p=paramount_schedule' \\
@@ -78,19 +78,30 @@ curl -s 'https://data.miopks.workers.dev/?p=paramount_schedule' \\
 
         Object.keys(rawData).forEach(key => {
             let section = rawData[key];
+            
+            // শুধু Live & Upcoming সেকশন ধরবে
             if (section.category && section.category.toLowerCase().includes("live & upcoming")) {
                 section.events.forEach(event => {
+                    
+                    // আপকামিং ম্যাচের কি (key) না থাকলেও JSON এ যুক্ত করার জন্য stream_url ভ্যালু সেট করে নিচ্ছি
                     if (event.dai_stream_key) {
-                        // ডাইনামিক স্ট্রিম ইউআরএল তৈরি
-                        const streamUrl = `${HF_BASE_URL}${event.dai_stream_key}${BRAND_SUFFIX}`;
-                        event.stream_url = streamUrl; 
-                        finalEvents.push(event);
+                        event.stream_url = `${HF_BASE_URL}${event.dai_stream_key}`;
+                    } else {
+                        event.stream_url = ""; 
+                    }
+                    
+                    // সব ইভেন্ট (Live + Upcoming) JSON এর জন্য পুশ করা হলো
+                    finalEvents.push(event);
 
+                    // M3U প্লেলিস্টে শুধু সেগুলোই যাবে যেগুলোর dai_stream_key আছে (যেহেতু আপকামিং প্লে করা যাবে না)
+                    if (event.dai_stream_key) {
                         const title = event.title || event.on_now_title || 'Paramount Live Event';
-                        const logo = event.logo || event.thumbnail || '';
+                        
+                        // লোগো হিসেবে thumbnail ব্যবহার করা হলো
+                        const logo = event.thumbnail || '';
                         
                         m3uContent += `#EXTINF:-1 tvg-logo="${logo}" group-title="Paramount Live", ${title}\n`;
-                        m3uContent += `${streamUrl}\n\n`;
+                        m3uContent += `${event.stream_url}\n\n`;
                     }
                 });
             }
@@ -103,7 +114,8 @@ curl -s 'https://data.miopks.workers.dev/?p=paramount_schedule' \\
         if (fs.existsSync('paramount_enc.txt')) fs.unlinkSync('paramount_enc.txt');
         if (fs.existsSync('fetch_temp.sh')) fs.unlinkSync('fetch_temp.sh');
 
-        console.log(`✅ Success! ${finalEvents.length} live matches saved to playlist.m3u and paramount_live.json.`);
+        console.log(`✅ Success! ${finalEvents.length} events (Live & Upcoming) saved to paramount_live.json.`);
+        console.log(`✅ Live matches added to playlist.m3u.`);
 
     } catch (err) {
         console.error("\n❌ Error:", err.message);

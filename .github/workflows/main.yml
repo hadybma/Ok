@@ -1,11 +1,12 @@
-name: Auto Update Sports Playlist
+name: Paramount Auto Playlist Update
 
 on:
-  → Runs every 15 minutes # প্রতি ১৫ মিনিট পর পর চলবে
-  workflow_dispatch: # ম্যানুয়ালি রান করার অপশন
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 jobs:
-  build:
+  update-playlist:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -16,7 +17,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: Run Generator Script
+      - name: Run Playlist Generator
         run: node playlist_generator.js
 
       - name: Commit and Push Changes
@@ -24,5 +25,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
           git add paramount_live.json playlist.m3u
-          git commit -m "Auto Update: $(date)" || exit 0
+          git commit -m "Auto Update: Paramount Live Matches" || echo "No changes to commit"
           git push

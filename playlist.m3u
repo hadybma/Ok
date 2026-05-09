@@ -1,9 +1,9 @@
 #EXTM3U
 # Developed by Hady & join tg channel t.me/livesportsplay
 
-#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/04/23/SERIE_THMB_26_Cagliari_Main_Udinese_Main_nrjy8.jpg" group-title="Paramount Live", Cagliari vs. Udinese
-https://srhady-sports-transcoder.hf.space/play.m3u8?id=bQ15TU94SZm1pta6800Kcw
-
 #EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/05/04/EFL_LEAGUE1_THMB_26_Stevenage_Main_Stockport_County_Main_s5wk2.jpg" group-title="Paramount Live", Stevenage vs. Stockport County
 https://srhady-sports-transcoder.hf.space/play.m3u8?id=1zRLqNf0SV-1m_PC6GjIvw
+
+#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/04/23/SERIE_THMB_26_Lazio_Main_InterMilan_Main_p8sua.jpg" group-title="Paramount Live", Lazio vs. Inter
+https://srhady-sports-transcoder.hf.space/play.m3u8?id=eLFRJiLcQX66FKA17ear2g
 

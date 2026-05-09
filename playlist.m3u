@@ -1,6 +1,12 @@
 #EXTM3U
 # Developed by Hady & join tg channel t.me/livesportsplay
 
-#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/04/23/SERIE_THMB_26_Lazio_Main_InterMilan_Main_p8sua.jpg" group-title="Paramount Live", Lazio vs. Inter
-https://srhady-sports-transcoder.hf.space/play.m3u8?id=eLFRJiLcQX66FKA17ear2g
+#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/05/04/EFL_LEAGUE1_THMB_26_BoltonWanderers_Main_Bradford_City_Main_6pbio.jpg" group-title="Paramount Live", Bolton Wanderers vs. Bradford City
+https://srhady-sports-transcoder.hf.space/play.m3u8?id=q8GKkO-rRpqPp2gs02HRhw
+
+#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/04/23/SERIE_THMB_26_Lecce_Main_Juventus_Main_c1z5k.jpg" group-title="Paramount Live", Lecce vs. Juventus
+https://srhady-sports-transcoder.hf.space/play.m3u8?id=2PAj1TcoRUm6Djl1MNQwgg
+
+#EXTINF:-1 tvg-logo="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2026/04/10/SPFL_WHPMS_THMB_26_Motherwell_FC_Main_HeartofMidlothian_FC_Main_y4w7h.jpg" group-title="Paramount Live", Motherwell vs. Heart of Midlothian
+https://srhady-sports-transcoder.hf.space/play.m3u8?id=ucERzbSvQamFnENic1X7Yg
 

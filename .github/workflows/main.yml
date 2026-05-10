@@ -1,8 +1,7 @@
 name: Paramount Auto Playlist Update
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
+  
   workflow_dispatch:
 
 jobs:
